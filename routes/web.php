@@ -6,6 +6,7 @@ use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\MessageReactionController;
+use App\Http\Controllers\QuoteController;
 
 Route::get('/', function () {
     if (session()->has('user_id')) {
@@ -60,5 +61,8 @@ Route::middleware('mini.auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])
         ->name('logout');
 
+    Route::get('/quote/{id}', [QuoteController::class, 'show'])
+        ->name('show-quote');
+    
     
 });
