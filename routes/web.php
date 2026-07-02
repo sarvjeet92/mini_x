@@ -64,5 +64,9 @@ Route::middleware('mini.auth')->group(function () {
     Route::get('/quote/{id}', [QuoteController::class, 'show'])
         ->name('show-quote');
     
-    
+    Route::get('/submit-quote', [QuoteController::class, 'create'])
+        ->name('quotes.create');
+
+    Route::post('/submit-quote', [QuoteController::class, 'store'])
+        ->name('quotes.store');
 });
