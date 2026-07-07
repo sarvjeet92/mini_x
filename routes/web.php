@@ -8,6 +8,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\MessageReactionController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PullQuotesController;
 
 Route::get('/', function () {
     if (session()->has('user_id')) {
@@ -72,4 +73,7 @@ Route::middleware('mini.auth')->group(function () {
         ->name('quotes.store');
 
     Route::get('/store-data', [PostController::class, 'store']);
+    
+    Route::get('pull-quotes', [PullQuotesController::class, 'pullQuotes'])
+        ->name('pull.quotes');
 });
