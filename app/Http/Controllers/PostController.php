@@ -13,20 +13,9 @@ class PostController extends Controller
         $api_URL = 'https://api.attackontitanapi.com/characters';
 
         $response = Http::get($api_URL);
-        
-        {
-           // echo "<pre>";
-            dd($response->json());
-
-
-
-
-        }
-
-
-
-        echo "<pre>";
-        print_r($data);
-        die();
+        $data = $response->json();  
+        // dd($data);
+        return view('posts.index', compact('data'));
+       
     }
 }
