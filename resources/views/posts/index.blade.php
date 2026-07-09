@@ -9,7 +9,6 @@
             <h2>{{ $character['name']?? 'N/A' }}</h2>            
             <p>Age: {{ $character['age']?? 'N/A' }}</p>
             <p>Image: {{ $character['img']?? 'N/A' }}</p>
-            <p>|{{ $character['img']?? 'N/A' }}|</p>
             <img src="{{ $character['img']?? 'N/A' }}" alt="Character Image" width="200" height="200">
             <p>Species: {{ $character['species'][0]?? 'N/A' }}</p>
             <p>Gender: {{ $character['gender']?? 'N/A' }}</p>
