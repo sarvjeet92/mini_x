@@ -1,19 +1,21 @@
-<div>
+<div >
     <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
 
 
     
     @foreach ($data['results'] as $character)
-        
+    
         <div class="card"> 
             <h2>{{ $character['name']?? 'N/A' }}</h2>            
+            <!-- <p>Image: {{ $character['img']?? 'N/A' }}</p> -->
+            <!-- <img src="{{ $character['img']?? 'N/A' }}" alt="Character Image" width="200" height="200"> -->
+            <img src="{{\Illuminate\Support\Str::before($character['img']?? 'N/A', '.png') . '.png'}}" alt="{{ $character['name']?? 'N/A' }}" width="200" height="200">
             <p>Age: {{ $character['age']?? 'N/A' }}</p>
-            <p>Image: {{ $character['img']?? 'N/A' }}</p>
-            <img src="{{ $character['img']?? 'N/A' }}" alt="Character Image" width="200" height="200">
             <p>Species: {{ $character['species'][0]?? 'N/A' }}</p>
             <p>Gender: {{ $character['gender']?? 'N/A' }}</p>
             <p>Height: {{ $character['height']?? 'N/A' }}</p> 
         </div>
+        <hr>
         
     @endforeach
 <img src="https://picsum.photos/200/300" alt="Test">
