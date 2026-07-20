@@ -9,6 +9,7 @@ use App\Http\Controllers\MessageReactionController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PullQuotesController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     if (session()->has('user_id')) {
@@ -76,4 +77,6 @@ Route::middleware('mini.auth')->group(function () {
     
     Route::get('pull-quotes', [PullQuotesController::class, 'pullQuotes'])
         ->name('pull.quotes');
+
+    Route::resource('users', UserController::class);
 });
